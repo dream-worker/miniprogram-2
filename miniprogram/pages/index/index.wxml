@@ -1,0 +1,25 @@
+<!--index.wxml-->
+<view class="container">
+首页
+
+<button type='primary' bindtap="sum">加法计算</button>
+<button type='primary' bindtap="werun">获取步数</button>
+<!-- 打开一个页面，展示步数列表 -->
+<view class='step' >
+  <view  wx:for='{{ stepInfoList }}' wx:key="timestamp">
+    <view class='step_item'>第 {{index+1}} 天： {{item.step}} 步</view>
+  </view>
+</view>
+<button type='primary' bindtap="scan">扫码识别</button>
+<!-- <button type='primary' bindtap="isbn">isbn查询</button> -->
+
+
+<view class='title'>书籍信息：
+  <view>书名：{{ bookInfo.result.title }} </view>
+  <view>作者：{{ bookInfo.result.author }} </view>
+  <view>ISBN:{{ bookInfo.result.isbn }} </view>
+ <view>封面: <image :src='{{bookInfo.result.image}}'></image></view>
+  <view>评分：{{ bookInfo.result.rating.value }} </view>
+  <view>地址：<a>{{ bookInfo.result.url }}</a></view>
+</view>
+</view>
